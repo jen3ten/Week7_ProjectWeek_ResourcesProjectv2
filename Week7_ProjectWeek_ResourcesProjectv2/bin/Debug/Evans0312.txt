@@ -4,4 +4,5 @@ Student Name: Jennifer Evans
 Student ID: 0312
 
 Resources Checked Out: 
-(No resources checked out)
+C# for Dummies (DVD)
+Database Design (Book)

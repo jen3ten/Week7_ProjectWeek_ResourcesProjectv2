@@ -99,15 +99,15 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             //Run the main menu until the user exits
             do
             {
-                string menuOption = Menu();                                                 //Present the main menu to the user
-                switch (menuOption)                                                         //Run code based on the menu option chosen by the user
+                string menuOption = Menu(); //Present the main menu to the user
+                switch (menuOption)         //Run code based on the menu option chosen by the user
                 {
                     case "S":               //"View Student List" menu option
-                        ResetScreen();                                                      //Clear screen; print title
-                        PrintStudentList();                                      //Print the student list
+                        ResetScreen();      //Clear screen; print title
+                        PrintStudentList(); //Print the student list
                         PressKey();
-                        ResetScreen();                                                      //Clear screen; print title
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        ResetScreen();      //Clear screen; print title
+                        break;              //The do-while loop continues; Menu() is called
                     case "R":               //"View All Resources" menu option
                         ResetScreen();
                         PrintResourceList();
@@ -115,61 +115,63 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                         ResetScreen();
                         break;
                     case "A":               //"View Available Resources" menu option
-                        ResetScreen();                                                      //Clear screen; print title
+                        ResetScreen();      //Clear screen; print title
                         List<string> unused = PrintAvailableResources(resourceList);        //Print the available resources
-                        PrintCheckedOutTextFile();                                          //Allow user to print checked out resources text file
+                        PrintCheckedOutTextFile();  //Allow user to print checked out resources text file
                         PressKey();
-                        ResetScreen();                                                      //Clear screen; print title
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        ResetScreen();      //Clear screen; print title
+                        break;              //The do-while loop continues; Menu() is called
                     case "E":               //"Edit Resources" menu option
                         ResetScreen();
                         PrintResourceList();
                         bool edited = EditResource(resourceList);
-                        if (edited)                                                         //If the resource was edited, then...
+                        if (edited)         //If the resource was edited, then...
                         {
-                            Resource.UpdateResourceListTextFile(resourceList);              //Update the Resources text files
-                            UpdateCheckedOutTextFile(resourceList);                         //Update the CheckedOut text file
+                            Resource.UpdateResourceListTextFile(resourceList);  //Update the Resources text files
+                            UpdateCheckedOutTextFile(resourceList);             //Update the CheckedOut text file
                             for (int i = 0; i < studentList.Count(); i++)
                             {
-                                studentList[i].UpdateStudentAcctTextFile(resourceList);     //Update the student account text files
+                                studentList[i].UpdateStudentAcctTextFile(resourceList); //Update the student account text files
                             }
                         }
                         ResetScreen();
                         break;
                     case "C":               //"View Student Account" menu option
-                        ResetScreen();                                                      //Clear screen; print title
-                        PrintStudentList();                                                 //Print the student list
-                        PrintStudentAccount(studentList, resourceList);                     //Print the student account
+                        ResetScreen();      //Clear screen; print title
+                        PrintStudentList(); //Print the student list
+                        PrintStudentAccount(studentList, resourceList);     //Print the student account
                         PressKey();
-                        ResetScreen();                                                      //Clear screen; print title
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        ResetScreen();      //Clear screen; print title
+                        break;              //The do-while loop continues; Menu() is called
                     case "O":               //"Checkout Resource" menu option
-                        ResetScreen();                                                      //Clear screen; print title
-                        PrintStudentList();                                                 //Print the student list
-                        CheckoutResource(studentList, resourceList);                        //Allow the user to checkout a resource
+                        ResetScreen();      //Clear screen; print title
+                        PrintStudentList(); //Print the student list
+                        CheckoutResource(studentList, resourceList);    //Allow the user to checkout a resource
                         PressKey();
-                        ResetScreen();                                                      //Clear screen; print title
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        ResetScreen();      //Clear screen; print title
+                        break;              //The do-while loop continues; Menu() is called
                     case "I":               //"CheckIn Resource" menu option
-                        ResetScreen();                                                      //Clear screen; print title
-                        PrintStudentList();                                                 //Print the student list
-                        ReturnResource(studentList, resourceList);                          //Allow the user to return a resource
+                        ResetScreen();      //Clear screen; print title
+                        PrintStudentList(); //Print the student list
+                        ReturnResource(studentList, resourceList);      //Allow the user to return a resource
                         PressKey();
-                        ResetScreen();                                                      //Clear screen; print title
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        ResetScreen();      //Clear screen; print title
+                        break;              //The do-while loop continues; Menu() is called
                     case "X":               //"Exit" menu option
-                        ResetScreen();                                                      //Clear screen; print title
-                        Console.WriteLine("Goodbye!");                                      //Gives the user a "Goodbye" message
+                        ResetScreen();      //Clear screen; print title
+                        Console.WriteLine("Goodbye!");      //Gives the user a "Goodbye" message
                         Console.WriteLine();
-                        runProgram = false;                                                 //Breaks out of do-while loop
+                        Console.WriteLine("...press any key to close the program...");
+                        Console.ReadKey();
+                        runProgram = false; //Breaks out of do-while loop
                         break;
                     default:
-                        ResetScreen();                                                      //Clear screen; print title
+                        ResetScreen();      //Clear screen; print title
                         Console.WriteLine("The code you entered was not found.  Please enter a valid code."); //User is warned that invalid entry was made
                         Console.WriteLine();
-                        break;                                                              //The do-while loop continues; Menu() is called
+                        break;              //The do-while loop continues; Menu() is called
                 }
-            } while (runProgram);                                                           //The loop continues while runProgram is true
+            } while (runProgram);           //The loop continues while runProgram is true
         } //Main()
 
         //ResetScreen() clears the screen and prints the title
@@ -243,7 +245,7 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             line = readStudentList.ReadLine();
             do
             {
-                Console.WriteLine($"*{num,9}.  {line,-27}*");        //the line numbers are right justified; names are left justified
+                Console.WriteLine($"*{num,9}.  {line,-27}*"); //the line numbers are right justified; names are left justified
                 line = readStudentList.ReadLine();
                 num++;
             } while (line != null);
@@ -267,7 +269,7 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             line = readResourceList.ReadLine();
             do
             {
-                Console.WriteLine($"*{num,5}.  {line,-31}*");        //the line numbers are right justified; names are left justified
+                Console.WriteLine($"*{num,5}.  {line,-31}*");  //the line numbers are right justified; names are left justified
                 line = readResourceList.ReadLine();
                 num++;
             } while (line != null);
@@ -332,14 +334,16 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             Console.WriteLine("*\t\t\t\t\t*");
             int num = 0;
             bool allCheckedOut = true;
-            foreach (Resource item in resourceList)  //go through all resources in resourceList and print only available resources
+            //go through all resources in resourceList and print only available resources
+            foreach (Resource item in resourceList)  
             {
                 if (item.CheckedOut == "")   //if the CheckedOut property is blank, it is available
                 {
                     num++;
-                    Console.WriteLine($"*{num,5}.  {item.Title+ " (" + item.Type + ")",-31}*");   //the line numbers are right justified; resources are left justified
+                    Console.WriteLine($"*{num,5}.  {item.Title+ " (" + item.Type + ")",-31}*");   
+                    //the line numbers are right justified; resources are left justified
                     availableResources.Add(item.Title);
-                    allCheckedOut = false;                              //If there is a blank, all resources are not checked out
+                    allCheckedOut = false;   //If there is a blank, all resources are not checked out
                 }
             }
             if (allCheckedOut)  //if no values are blank, all resources are checked out
@@ -369,7 +373,7 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                 if (studentNum < 1 || studentNum > numStudents)                 //..that falls between 1 and the number of students
                     validNum = false;
             } while (!validNum);
-            string studentName = studentList[studentNum - 1].Name;       //the student's name is extracted from the list by index number
+            string studentName = studentList[studentNum - 1].Name;  //the student's name is extracted from the list by index number
             int num = 1;
             bool noResources = true;
             Console.WriteLine();
@@ -383,26 +387,28 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             Console.WriteLine("*\t\t\t\t\t*");
             foreach (Resource item in resourceList)   //Loop through all key value pairs in resourceDictionary
             {
-                if (item.CheckedOut == studentName)                             //When the value equals the student name...
+                if (item.CheckedOut == studentName)  //When the value equals the student name...
                 {
-                    Console.WriteLine($"*{num, 5}.  {item.Title + " (" + item.Type + ")",-31}*");           //...print the name of the resource they checked out
+                    //...print the name of the resource they checked out
+                    Console.WriteLine($"*{num, 5}.  {item.Title + " (" + item.Type + ")",-31}*");           
                     num++;
                     noResources = false;
                 }
             }
-            if (noResources)                                           //...or let the user know that they didn't check out any resources
+            if (noResources)    //...or let the user know that they didn't check out any resources
             {
                 Console.WriteLine("*\t(No resources checked out)\t*");
             }
             Console.WriteLine("*\t\t\t\t\t*");
             Console.WriteLine("*****************************************");
             Console.WriteLine();
-            Console.Write("Would you like to print the student account? (Please enter y/n) ");  //The user may print the student account from text file
+            //The user may print the student account from text file
+            Console.Write("Would you like to print the student account? (Please enter y/n) ");  
             string response = Console.ReadLine().ToUpper();
             if (response == "Y" || response == "YES")
             {
                 ResetScreen();
-                studentList[studentNum - 1].PrintStudentAcctTextFile();                         //Print the text file to the screen
+                studentList[studentNum - 1].PrintStudentAcctTextFile();  //Print the text file to the screen
             }
         } //PrintAvailableResources()
 
@@ -451,12 +457,13 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                         }
                         else
                         {
-                            string resource = availableResources[resourceNum - 1]; //The name of the resources is extracted from the list by index number
+                            //The name of the resources is extracted from the list by index number
+                            string resource = availableResources[resourceNum - 1]; 
                             foreach(Resource item in resourceList)
                             {
                                 if (item.Title == resource)
                                 {
-                                    item.CheckedOut = studentName;         //The CheckedOut property is assigned to the student's name
+                                    item.CheckedOut = studentName;  //The CheckedOut property is assigned to the student's name
                                     Console.WriteLine();
                                     item.CheckOut(studentName);
                                     studentList[studentNum - 1].UpdateStudentAcctTextFile(resourceList);    //Update the text file
@@ -477,16 +484,16 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
         {
             bool maxResources = false;
             int count = 0;
-            foreach (Resource item in resourceList)                                 //Loop through all resources in resourceList
+            foreach (Resource item in resourceList)     //Loop through all resources in resourceList
             {
-                if (item.CheckedOut == studentName)                                 //Count each time the student's name is found
+                if (item.CheckedOut == studentName)     //Count each time the student's name is found
                 {
                     count++;
                 }
             }
-            if (count >= 3)                                                         //If the count is 3 or more, maximum resources have been checked out
+            if (count >= 3)         //If the count is 3 or more, maximum resources have been checked out
                 maxResources = true;
-            return maxResources;                                                    //The method returns a true or false value
+            return maxResources;    //The method returns a true or false value
         } //MaxResources()
 
         //ReturnResources() allows user to return a resource
@@ -502,12 +509,13 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             do
             {
                 Console.Write("Please enter the number of the student who wishes to return a resource: ");
-                validNum = int.TryParse(Console.ReadLine(), out studentNum);            //The user input is checked for validity
+                validNum = int.TryParse(Console.ReadLine(), out studentNum);    //The user input is checked for validity
                 if (studentNum < 1 || studentNum > numStudents)
                     validNum = false;
             } while (!validNum);
             Console.WriteLine();
-            string studentName = studentList[studentNum - 1].Name;       //The student's name is extracted from the list by index number
+            //The student's name is extracted from the list by index number
+            string studentName = studentList[studentNum - 1].Name;       
 
             int num = 0;
             bool noResources = true;
@@ -522,15 +530,17 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
             Console.WriteLine("{0,-34}*", output);
             Console.WriteLine("*\t\t\t\t\t*");
 
-            List<string> studentResourceList = new List<string>();                  //A new list is declared to temporarily hold the student's resources
+            //A new list is declared to temporarily hold the student's resources
+            List<string> studentResourceList = new List<string>();   
 
-            foreach (Resource item in resourceList)                                 //Check each resource in resourceList
+            foreach (Resource item in resourceList)  //Check each resource in resourceList
             {
-                if (item.CheckedOut == studentName)                                 //If the student's name is found...
+                if (item.CheckedOut == studentName)  //If the student's name is found...
                 {
                     num++;
                     Console.WriteLine($"*{num,5}.  {item.Title + " (" + item.Type + ")",-31}*");
-                    studentResourceList.Add(item.Title);                            //the title of the resource is added to the student's resource list
+                    //the title of the resource is added to the student's resource list
+                    studentResourceList.Add(item.Title);  
                     noResources = false;
                 }
             }
@@ -546,7 +556,7 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                 do
                 {
                     Console.Write("Please enter the number of the resource (or 0 to exit without returning an item): ");
-                    validNum = int.TryParse(Console.ReadLine(), out resourceNum);           //Check user input for validity
+                    validNum = int.TryParse(Console.ReadLine(), out resourceNum);  //Check user input for validity
                     if (validNum == false)
                         continue;
                     if (resourceNum == 0)
@@ -557,14 +567,17 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                     }
                     else
                     {
-                        string resource = studentResourceList[resourceNum - 1];         //Look up the name of the resource from the list by index
+                        //Look up the name of the resource from the list by index
+                        string resource = studentResourceList[resourceNum - 1];         
                         foreach (Resource item in resourceList)
                         {
                             if (item.Title == resource)
                             {
                                 item.CheckedOut = "";
-                                studentList[studentNum - 1].UpdateStudentAcctTextFile(resourceList);    //Update the student account text file
-                                UpdateCheckedOutTextFile(resourceList);                                 //Update the checked out resources text file
+                                //Update the student account text file
+                                studentList[studentNum - 1].UpdateStudentAcctTextFile(resourceList);    
+                                //Update the checked out resources text file
+                                UpdateCheckedOutTextFile(resourceList);                                 
                             }
                         }
                         Console.WriteLine();
@@ -580,8 +593,10 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
         //UpdateCheckedOutTextFile() has no return values
         static void UpdateCheckedOutTextFile(List<Resource> resourceList)
         {
-            StreamWriter writeCheckedOut = new StreamWriter("BootcampResourcesCheckedOut.txt");     //StreamWriter is created to write to the text file
-            writeCheckedOut.WriteLine("BOOTCAMP RESOURCE LIBRARY CHECKED OUT RESOURCES");           //Header information is written to the text file
+            //StreamWriter is created to write to the text file
+            StreamWriter writeCheckedOut = new StreamWriter("BootcampResourcesCheckedOut.txt");     
+            //Header information is written to the text file
+            writeCheckedOut.WriteLine("BOOTCAMP RESOURCE LIBRARY CHECKED OUT RESOURCES");           
             writeCheckedOut.WriteLine();
             writeCheckedOut.WriteLine("Resources Checked Out: ");
             bool noResources = true;
@@ -596,7 +611,8 @@ namespace Week7_ProjectWeek_ResourcesProjectv2
                     checkedOutLine.Append(" has been checked out by ");
                     checkedOutLine.Append(item.CheckedOut);
                     checkedOutLine.ToString();
-                    writeCheckedOut.WriteLine(checkedOutLine);                    //The resource name and who checked it out is written to the text file
+                    //The resource name and who checked it out is written to the text file
+                    writeCheckedOut.WriteLine(checkedOutLine);                    
                     noResources = false;
                 }
             }

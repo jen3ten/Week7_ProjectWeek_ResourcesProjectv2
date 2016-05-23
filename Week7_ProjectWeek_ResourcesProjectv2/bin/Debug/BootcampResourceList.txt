@@ -1,5 +1,5 @@
 Agile Methodology (Magazine)
-c# for dummiesss (DVD)
+C# for Dummies (DVD)
 C# Player's Guide (Book)
 Database Design (Book)
 Getting Along with Git (DVD)
