@@ -7,3 +7,6 @@ c:\users\wecancodeit\documents\visual studio 2015\Projects\Week7_ProjectWeek_Res
 C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\bin\Debug\Week7_ProjectWeek_ResourcesProjectv2.exe.config
 C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\obj\Debug\Week7_ProjectWeek_ResourcesProjectv2.exe
 C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\obj\Debug\Week7_ProjectWeek_ResourcesProjectv2.pdb
+C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\bin\Debug\Week7_ProjectWeek_ResourcesProjectv2.exe
+C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\bin\Debug\Week7_ProjectWeek_ResourcesProjectv2.pdb
+C:\Users\jenev\OneDrive\Documents\Visual Studio 2015\WCCI Projects\Week7_ProjectWeek_ResourcesProjectv2\Week7_ProjectWeek_ResourcesProjectv2\obj\Debug\Week7_ProjectWeek_ResourcesProjectv2.csprojResolveAssemblyReference.cache

@@ -5,4 +5,4 @@ Student ID: 0312
 
 Resources Checked Out: 
 C# for Dummies (DVD)
-Database Design (Book)
+Scrum 101 (Magazine)
